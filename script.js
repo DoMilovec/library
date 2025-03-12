@@ -13,7 +13,7 @@ function Book(name, author, pages){
     this.name = name;
     this.author = author;
     this.pages = pages;
-    this.id = crypto.randomUUID;
+    this.id = crypto.randomUUID();
 }
 
 function addBookToLibrary(name, author, pages){
