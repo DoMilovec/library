@@ -46,6 +46,7 @@ confirmBtn.addEventListener('click', (event) => {
 
     // loop to add and display books in the library
     for (let i=0 ; i<myLibrary.length ; i++){
+        const book = myLibrary[i];
         const card =  document.createElement('div');
         card.classList.add('card');
         if (myLibrary[i].read === 'read'){ // change read class on creation for css
@@ -64,14 +65,14 @@ confirmBtn.addEventListener('click', (event) => {
         readBtn.textContent = 'READ';
         container.appendChild(readBtn);
         readBtn.addEventListener('click', (event) => {  
-            if (myLibrary[i].read === 'unread'){
+            if (book.read === 'unread'){
                 card.classList.remove('unread');
                 card.classList.add('read');
-            } else if (myLibrary[i].read === 'read'){
+            } else if (book.read === 'read'){
                 card.classList.remove('read');
                 card.classList.add('unread');
             }
-            myLibrary[i].toggleRead();
+            book.toggleRead();
         });
 
         // delete button and logic to remove specific book
