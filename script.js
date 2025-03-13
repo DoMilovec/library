@@ -1,4 +1,4 @@
-// Query selectors
+// query selectors
 const container = document.querySelector('.container');
 const newBtn = document.querySelector('#new-book');
 const dialog = document.querySelector('dialog');
@@ -8,42 +8,59 @@ const selectName = document.querySelector('#name');
 const selectAuthor = document.querySelector('#author');
 const selectPages = document.querySelector('#pages');
 
-// Library array creation
+// library array creation
 const myLibrary = [];
 
-// Book constructor and function for adding the book to library
+// book constructor and function for adding the book to library
 function Book(name, author, pages){
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.id = crypto.randomUUID();
+    this.read = 'unread';
 }
 function addBookToLibrary(name, author, pages){
     let book = new Book(name, author, pages);
     myLibrary.push(book);
 }
 
-// Add new book, opens modal on click
+Book.prototype.toggleRead = function(){
+    if (this.read === 'unread'){
+        this.read = 'read';
+    } else if (this.read === 'read'){
+        this.read = 'unread';
+    }
+}
+
+// add new book, opens modal on click
 newBtn.addEventListener('click', (event) => {
     dialog.showModal();
 });
 
-// Confirm button to add the book to the library
+// confirm button to add the book to the library
 confirmBtn.addEventListener('click', (event) => {
     event.preventDefault();
     addBookToLibrary(selectName.value, selectAuthor.value, selectPages.value);
 
     container.textContent = ''; // clears container on each book that is added
 
-    // Loop to add and display books in the library
+    // loop to add and display books in the library
     for (let i=0 ; i<myLibrary.length ; i++){
         const card =  document.createElement('div');
-        card.classList.add('card');
+        card.classList.add('card', 'unread');
         container.appendChild(card);
         card.textContent = myLibrary[i].name + ' by ' + myLibrary[i].author + ', has ' + myLibrary[i].pages + ' pages.';
         
         // saving the book ID in the loop
         const bookId = myLibrary[i].id;
+
+        // read toggle button
+        const readBtn = document.createElement('button');
+        readBtn.textContent = 'READ';
+        container.appendChild(readBtn);
+        readBtn.addEventListener('click', (event) => {
+            myLibrary[i].toggleRead();
+        });
 
         // delete button and logic to remove specific book
         const delBtn = document.createElement('button');
