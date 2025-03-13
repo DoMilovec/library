@@ -47,7 +47,12 @@ confirmBtn.addEventListener('click', (event) => {
     // loop to add and display books in the library
     for (let i=0 ; i<myLibrary.length ; i++){
         const card =  document.createElement('div');
-        card.classList.add('card', 'unread');
+        card.classList.add('card');
+        if (myLibrary[i].read === 'read'){ // change read class on creation for css
+            card.classList.add('read');
+        } else {
+            card.classList.add('unread');
+        }
         container.appendChild(card);
         card.textContent = myLibrary[i].name + ' by ' + myLibrary[i].author + ', has ' + myLibrary[i].pages + ' pages.';
         
@@ -58,7 +63,14 @@ confirmBtn.addEventListener('click', (event) => {
         const readBtn = document.createElement('button');
         readBtn.textContent = 'READ';
         container.appendChild(readBtn);
-        readBtn.addEventListener('click', (event) => {
+        readBtn.addEventListener('click', (event) => {  
+            if (myLibrary[i].read === 'unread'){
+                card.classList.remove('unread');
+                card.classList.add('read');
+            } else if (myLibrary[i].read === 'read'){
+                card.classList.remove('read');
+                card.classList.add('unread');
+            }
             myLibrary[i].toggleRead();
         });
 
@@ -69,6 +81,7 @@ confirmBtn.addEventListener('click', (event) => {
         delBtn.addEventListener('click', (event) => {
             card.remove();
             delBtn.remove();
+            readBtn.remove();
     
             // find and remove the book from myLibrary
             const indexToRemove = myLibrary.findIndex(book => book.id === bookId);
