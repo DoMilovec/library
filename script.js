@@ -42,7 +42,9 @@ confirmBtn.addEventListener('click', (event) => {
     event.preventDefault();
     addBookToLibrary(selectName.value, selectAuthor.value, selectPages.value);
 
-    container.textContent = ''; // clears container on each book that is added
+    // clears container on each book that is added
+    const books = document.querySelectorAll('.card');
+    books.forEach(book => book.remove());
 
     // loop to add and display books in the library
     for (let i=0 ; i<myLibrary.length ; i++){
@@ -63,7 +65,7 @@ confirmBtn.addEventListener('click', (event) => {
         // read toggle button
         const readBtn = document.createElement('button');
         readBtn.textContent = 'READ';
-        container.appendChild(readBtn);
+        card.appendChild(readBtn);
         readBtn.addEventListener('click', (event) => {  
             if (book.read === 'unread'){
                 card.classList.remove('unread');
@@ -78,7 +80,7 @@ confirmBtn.addEventListener('click', (event) => {
         // delete button and logic to remove specific book
         const delBtn = document.createElement('button');
         delBtn.textContent = 'X';
-        container.appendChild(delBtn);
+        card.appendChild(delBtn);
         delBtn.addEventListener('click', (event) => {
             card.remove();
             delBtn.remove();
@@ -103,3 +105,10 @@ cancelBtn.addEventListener('click', (event) => {
     event.preventDefault();
     dialog.close();
 })
+
+// Function to limit number of pages allowable to enter
+function limitInputPages(input) {
+    if (input.value.length > 5) {
+        input.value = input.value.slice(0, 5); // Trim excess digits
+    }
+}

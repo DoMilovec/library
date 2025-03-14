@@ -5,32 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container"></div>
+    <div class="header">Your Online Book Library</div>
+    <div class="main">
+        <div class="welcome-text">Welcome to your online book library! <br>Add books, track their read status and more. Enjoy your reading.</div>
+        <button id="new-book">Add New Book</button>
+        <div class="container">     
+                <dialog id="dialog">
+                    <form method="dialog">
+                        <div class="book-name">
+                            <label for="name">Book name:</label>
+                            <input type="text" id="name" name="name" maxlength="50">
+                        </div>
+                        <div class="book-author">
+                            <label for="author">Book author:</label>
+                            <input type="text" id="author" name="author" maxlength="50">
+                        </div>
+                        <div class="book-pages">
+                            <label for="pages">Pages:</label>
+                            <input type="number" id="pages" name="pages" max="999" oninput="limitInputPages(this)">
+                        </div>
 
-    <dialog id="dialog">
-        <form method="dialog">
-
-            <div class="book-name">
-                <label for="name">Book name:</label>
-                <input type="text" id="name" name="name">
-            </div>
-            <div class="book-author">
-                <label for="author">Book author:</label>
-                <input type="text" id="author" name="author">
-            </div>
-            <div class="book-pages">
-                <label for="pages">Pages:</label>
-                <input type="text" id="pages" name="pages">
-            </div>
-
-            <button class="confirm">Confirm</button>
-            <button class="cancel">Cancel</button>
-        </form>
-    </dialog>
-
-    <button id="new-book">Add New Book</button>
+                        <button class="confirm">Confirm</button>
+                        <button class="cancel">Cancel</button>
+                    </form>
+                </dialog>    
+        </div>
+    </div>
+    <div class="footer">Dominik Milovec Ⓒ The Odin Project 2025.</div>
 <script src="script.js"></script>
 </body>
 </html>
