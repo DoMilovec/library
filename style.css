@@ -33,10 +33,6 @@ body {
     
 }
 
-.container {
-    flex: 1;
-}
-
 .header {
     background-color: lightgrey;
     color: white;
@@ -46,7 +42,7 @@ body {
     font-family: "Big Shoulders", sans-serif;
     font-weight: 400;
     grid-template-columns: 1fr 9fr;
-    gap: 1em;
+    gap: 2em;
 }
 
 .header-logo {
@@ -87,14 +83,6 @@ body {
     text-shadow: 2px 2px 4px black;
 }
 
-.card.unread {
-    border: 2px red dashed;
-}
-
-.card.read {
-    border: 2px rgb(0, 0, 0) dashed;
-}
-
 #new-book {
     display: inline-block;
     transition: all 0.2s ease-in;
@@ -111,6 +99,7 @@ body {
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     width: 20rem;
     height: 2rem;
+    margin-left: 2em;
   }
   
   #new-book:active {
@@ -183,3 +172,20 @@ body {
     color: #666;
     box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
   }
+  
+.container {
+    flex: 1;
+    padding: 1em;
+}
+
+.card {
+    margin: 0.5em;
+}
+
+.card.unread {
+    border: 2px red dashed;
+}
+
+.card.read {
+    border: 2px rgb(0, 0, 0) dashed;
+}
