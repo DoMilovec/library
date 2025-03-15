@@ -41,7 +41,7 @@ body {
     font-size: 3rem;
     font-family: "Big Shoulders", sans-serif;
     font-weight: 400;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 1fr 9fr 1fr;
     gap: 2em;
 }
 
@@ -171,6 +171,69 @@ body {
   .cancel:active {
     color: #666;
     box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+  }
+  
+
+
+/* Sign-up button */ 
+.sign-up {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 200px;
+    place-content: center;
+  }
+  
+  .sign-up:before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    display: block;
+    border-radius: 50px;
+    background: #ffffff;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+  }
+  
+  .sign-up span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .sign-up svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #009087;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  
+  .sign-up:hover:before {
+    width: 80%;
+    background: #ffffff;
+  }
+  
+  .sign-up:hover svg {
+    transform: translateX(0);
+  }
+  
+  .sign-up:active {
+    transform: scale(0.95);
   }
   
 .container {
