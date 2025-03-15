@@ -99,7 +99,8 @@ body {
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     width: 20rem;
     height: 2rem;
-    margin-left: 2em;
+    margin-left: 2.5em;
+    margin-top: 1.5em;
   }
   
   #new-book:active {
@@ -239,16 +240,22 @@ body {
 .container {
     flex: 1;
     padding: 1em;
+    padding-top: 0.25em;
 }
 
 .card {
     margin: 0.5em;
+    margin-top: 0.5em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black;
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
 }
 
 .card.unread {
-    border: 2px red dashed;
+    
 }
 
 .card.read {
-    border: 2px rgb(0, 0, 0) dashed;
+   
 }
