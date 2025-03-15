@@ -65,6 +65,7 @@ confirmBtn.addEventListener('click', (event) => {
         // read toggle button
         const readBtn = document.createElement('button');
         readBtn.textContent = 'READ';
+        readBtn.classList.add('readBtn');
         card.appendChild(readBtn);
         readBtn.addEventListener('click', (event) => {  
             if (book.read === 'unread'){
@@ -80,6 +81,7 @@ confirmBtn.addEventListener('click', (event) => {
         // delete button and logic to remove specific book
         const delBtn = document.createElement('button');
         delBtn.textContent = 'X';
+        delBtn.classList.add('delBtn');
         card.appendChild(delBtn);
         delBtn.addEventListener('click', (event) => {
             card.remove();
