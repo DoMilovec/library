@@ -240,7 +240,6 @@ body {
 .container {
     flex: 1;
     padding: 1em;
-    padding-top: 0.25em;
 }
 
 .card {
@@ -249,7 +248,11 @@ body {
     border-radius: 5px;
     box-shadow: 2px 2px 5px black;
     display: grid;
-    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-columns: 4.5fr 1fr 1fr 100px;
+    font-family: quicksand;
+    padding-left: 2.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
 }
 
 .card.unread {
@@ -258,4 +261,111 @@ body {
 
 .card.read {
    
+}
+
+.delBtn {
+  color: #090909;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  width: 100px;
+  height: auto;
+  display: grid;
+  place-content: center;
+}
+
+.delBtn:hover {
+  border: 1px solid white;
+}
+
+.delBtn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+
+.readBtn {
+  color: #090909;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  width: 10vw;
+  height: auto;
+  display: grid;
+  place-content: center;
+}
+
+.readBtn:hover {
+  border: 1px solid white;
+}
+
+.readBtn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+
+.currentBtn {
+  color: #090909;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  width: 10vw;
+  height: auto;
+  display: grid;
+  place-content: center;
+}
+
+.currentBtn:hover {
+  border: 1px solid white;
+}
+
+.currentBtn:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+
+.currentYes {
+  border: 2px orange solid;
+  box-shadow: 2px 2px 5px darkorange;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: 4.5fr 1fr 1fr 100px;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  margin-top: 1em;
+  font-family: "Ysabeau Office", sans-serif;
+  height: 0.5vh;
+}
+.l1, .l2, .l3, .l4 {
+  font-size: 20px;
+}
+
+.l1 {
+  padding-left: 2vw;
+}
+
+.l2, .l3 {
+  padding-left: 2.4vw;
+}
+
+.l4 {
+  padding-left: 0.4vw;
+}
+
+.currentBtnYes {
+  background-color: orange;
+}
+
+.currentBtnNo {
+  background-color: #e8e8e8;
 }

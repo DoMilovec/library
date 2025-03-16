@@ -18,6 +18,7 @@ function Book(name, author, pages){
     this.pages = pages;
     this.id = crypto.randomUUID();
     this.read = 'unread';
+    this.current = 'currentNo';
 }
 function addBookToLibrary(name, author, pages){
     let book = new Book(name, author, pages);
@@ -29,6 +30,14 @@ Book.prototype.toggleRead = function(){
         this.read = 'read';
     } else if (this.read === 'read'){
         this.read = 'unread';
+    }
+}
+
+Book.prototype.toggleCurrent = function(){
+    if (this.current === 'currentNo'){
+        this.current = 'currentYes';
+    } else if (this.current === 'currentYes'){
+        this.current = 'currentNo';
     }
 }
 
@@ -50,17 +59,37 @@ confirmBtn.addEventListener('click', (event) => {
     for (let i=0 ; i<myLibrary.length ; i++){
         const book = myLibrary[i];
         const card =  document.createElement('div');
-        card.classList.add('card');
+        card.classList.add('card', 'currentNo');
         if (myLibrary[i].read === 'read'){ // change read class on creation for css
             card.classList.add('read');
         } else {
             card.classList.add('unread');
         }
         container.appendChild(card);
-        card.textContent = myLibrary[i].name + ' by ' + myLibrary[i].author + ', has ' + myLibrary[i].pages + ' pages.';
+        card.textContent = myLibrary[i].name + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].author + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].pages + ' pages';
         
         // saving the book ID in the loop
         const bookId = myLibrary[i].id;
+
+        // mark currently being read button
+        const currentBtn = document.createElement('button');
+        currentBtn.textContent = 'Currently reading';
+        currentBtn.classList.add('currentBtn');
+        card.appendChild(currentBtn);
+        currentBtn.addEventListener('click', (event) => {  
+            if (book.current === 'currentNo'){
+                card.classList.remove('currentNo');
+                card.classList.add('currentYes');
+                currentBtn.classList.remove('currentBtnNo')
+                currentBtn.classList.add('currentBtnYes')
+            } else if (book.current === 'currentYes'){
+                card.classList.remove('currentYes');
+                card.classList.add('currentNo');
+                currentBtn.classList.remove('currentBtnYes')
+                currentBtn.classList.add('currentBtnNo')
+            }
+            book.toggleCurrent();
+        });
 
         // read toggle button
         const readBtn = document.createElement('button');
@@ -71,6 +100,9 @@ confirmBtn.addEventListener('click', (event) => {
             if (book.read === 'unread'){
                 card.classList.remove('unread');
                 card.classList.add('read');
+                card.classList.remove('currentYes');
+                currentBtn.classList.remove('currentBtnYes')
+                currentBtn.classList.add('currentBtnNo')
             } else if (book.read === 'read'){
                 card.classList.remove('read');
                 card.classList.add('unread');
@@ -80,7 +112,7 @@ confirmBtn.addEventListener('click', (event) => {
 
         // delete button and logic to remove specific book
         const delBtn = document.createElement('button');
-        delBtn.textContent = 'X';
+        delBtn.textContent = '✘';
         delBtn.classList.add('delBtn');
         card.appendChild(delBtn);
         delBtn.addEventListener('click', (event) => {
