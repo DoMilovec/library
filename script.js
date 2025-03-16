@@ -93,7 +93,7 @@ confirmBtn.addEventListener('click', (event) => {
 
         // read toggle button
         const readBtn = document.createElement('button');
-        readBtn.textContent = '✔️';
+        readBtn.textContent = 'READ';
         readBtn.classList.add('readBtn');
         card.appendChild(readBtn);
         readBtn.addEventListener('click', (event) => {  

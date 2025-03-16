@@ -368,3 +368,45 @@ body {
 .readBtnYes {
   background-color: rgba(144, 238, 144, 0.521);
 }
+
+@media (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    grid-template-rows: 22vh 1fr 1fr;
+  }
+
+
+
+  .header {
+    display: grid;
+    grid-template-areas: 
+      'logo signup'
+      'logo headtext';
+    position: relative;
+    }
+    
+  
+    
+
+  .header-logo {
+    grid-area: logo;
+    
+  }
+  .header-text {
+    font-size: 2rem;
+    grid-area: headtext;
+    margin-top: -150%;
+    margin-left: -60%;
+  }
+  .sign-up-button-container {
+    grid-area: signup;
+   
+    
+  }
+}
