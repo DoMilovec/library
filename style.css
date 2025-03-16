@@ -5,14 +5,6 @@
     font-size: 1.6rem;
 }
 
-.unread {
-    background-color: lightgrey;
-}
-
-.read {
-    background-color: lightgreen;
-}
-
 input[type="number"] {
     width: 4em;
 }
@@ -246,21 +238,12 @@ body {
     margin: 0.5em;
     margin-top: 0.5em;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px black;
     display: grid;
     grid-template-columns: 4.5fr 1fr 1fr 100px;
     font-family: quicksand;
     padding-left: 2.5vw;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
-}
-
-.card.unread {
-    
-}
-
-.card.read {
-   
 }
 
 .delBtn {
@@ -332,10 +315,7 @@ body {
   box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
-.currentYes {
-  border: 2px orange solid;
-  box-shadow: 2px 2px 5px darkorange;
-}
+
 
 .legend {
   display: grid;
@@ -363,9 +343,28 @@ body {
 }
 
 .currentBtnYes {
-  background-color: orange;
+  background-color: rgb(240, 173, 128);
 }
 
 .currentBtnNo {
   background-color: #e8e8e8;
+}
+
+.card.unread {
+  border-bottom: lightgrey 1px solid;
+  box-shadow: 0px 5px 10px grey;
+}
+
+.card.read {
+  border-bottom: rgba(144, 238, 144, 0.521) 1px solid;
+  box-shadow: 0px 5px 10px rgba(144, 238, 144, 0.521);
+}
+
+.card.currentYes {
+  border-bottom: rgb(240, 173, 128) 1px solid;
+  box-shadow: 0px 5px 10px rgb(240, 173, 128);
+}
+
+.readBtnYes {
+  background-color: rgba(144, 238, 144, 0.521);
 }

@@ -93,7 +93,7 @@ confirmBtn.addEventListener('click', (event) => {
 
         // read toggle button
         const readBtn = document.createElement('button');
-        readBtn.textContent = 'READ';
+        readBtn.textContent = '✔️';
         readBtn.classList.add('readBtn');
         card.appendChild(readBtn);
         readBtn.addEventListener('click', (event) => {  
@@ -103,9 +103,13 @@ confirmBtn.addEventListener('click', (event) => {
                 card.classList.remove('currentYes');
                 currentBtn.classList.remove('currentBtnYes')
                 currentBtn.classList.add('currentBtnNo')
+                readBtn.classList.remove('readBtnNo')
+                readBtn.classList.add('readBtnYes')
             } else if (book.read === 'read'){
                 card.classList.remove('read');
                 card.classList.add('unread');
+                readBtn.classList.add('readBtnNo')
+                readBtn.classList.remove('readBtnYes')
             }
             book.toggleRead();
         });
