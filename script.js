@@ -66,14 +66,30 @@ confirmBtn.addEventListener('click', (event) => {
             card.classList.add('unread');
         }
         container.appendChild(card);
-        card.textContent = myLibrary[i].name + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].author + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].pages + ' pages';
+        function updateCardText(card, book) {
+            card.textContent = book.name 
+                + (window.matchMedia("(max-width: 768px)").matches 
+                    ? '\u00A0\u00A0\u00A0\n' 
+                    : '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0')
+                + book.author 
+                + (window.matchMedia("(max-width: 768px)").matches 
+                    ? '\u00A0\u00A0\u00A0\n' 
+                    : '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0')
+                + book.pages 
+                + ' pages';
+        }
         
+        updateCardText(card, myLibrary[i]);
+        
+        window.addEventListener('resize', () => updateCardText(card, myLibrary[i]));        
+        
+        // card.textContent = myLibrary[i].name + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].author + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].pages + ' pages';
         // saving the book ID in the loop
         const bookId = myLibrary[i].id;
 
         // mark currently being read button
         const currentBtn = document.createElement('button');
-        currentBtn.textContent = 'Currently reading';
+        currentBtn.textContent = '📖';
         currentBtn.classList.add('currentBtn');
         card.appendChild(currentBtn);
         currentBtn.addEventListener('click', (event) => {  
@@ -93,7 +109,7 @@ confirmBtn.addEventListener('click', (event) => {
 
         // read toggle button
         const readBtn = document.createElement('button');
-        readBtn.textContent = 'READ';
+        readBtn.textContent = '✔️';
         readBtn.classList.add('readBtn');
         card.appendChild(readBtn);
         readBtn.addEventListener('click', (event) => {  

@@ -378,7 +378,8 @@ body {
 
   body {
     display: grid;
-    grid-template-rows: 22vh 1fr 1fr;
+    min-height: 100vh;
+    grid-template-rows: 22vh 1fr auto;
   }
 
 
@@ -388,11 +389,12 @@ body {
     grid-template-areas: 
       'logo signup'
       'logo headtext';
-    position: relative;
+    
     }
-    
-  
-    
+
+  #new-book {
+    margin-left: 10%;
+  }
 
   .header-logo {
     grid-area: logo;
@@ -403,10 +405,62 @@ body {
     grid-area: headtext;
     margin-top: -150%;
     margin-left: -60%;
+    width: 100%;
   }
   .sign-up-button-container {
     grid-area: signup;
-   
+    padding-left: 70%;
     
+  }
+  
+  .legend {
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+
+  .l1 {
+    width: 50vw;
+  }
+  .l2, .l3, .l4 {
+    margin-left: -20%;
+  }
+
+  .l1, .l2, .l3, .l4 {
+    font-size: 0.5em;
+  }
+  .l2 {
+    margin-left: -10%;
+  }
+  .l4 {
+    margin-left: 3%;
+  }
+  .l3 {
+    margin-left: -7%;
+  }
+
+  .card {
+    padding: 0;
+    padding-left: 10vw;
+    margin-top: 1em;
+    height: auto;
+    font-size: 0.5em;
+    white-space: pre-line; /* Ensures \n is treated as a line break */
+    margin-left: -8vw;
+    margin-right: -8vw;
+  }
+
+  .delBtn,
+  .currentBtn,
+  .readBtn {
+    width: 60px;
+    height: 60px;
+    margin-left: -30%;
+    margin-top: 0.5vh;
+  }
+  .readBtn {
+    margin-left: -10%;
+  }
+  .delBtn {
+    margin-left: 6%;
   }
 }
