@@ -46,11 +46,24 @@ newBtn.addEventListener('click', (event) => {
     dialog.showModal();
 });
 
+// check inputs for validity
+function checkInputs() {
+    if (selectName.value !== '' && selectAuthor.value !== '' && selectPages.value !== '') {
+        confirmBtn.disabled = false;
+    } else {
+        confirmBtn.disabled = true;
+    }
+}
+selectName.addEventListener('input', checkInputs);
+selectAuthor.addEventListener('input', checkInputs);
+selectPages.addEventListener('input', checkInputs);
+
 // confirm button to add the book to the library
 confirmBtn.addEventListener('click', (event) => {
     event.preventDefault();
     addBookToLibrary(selectName.value, selectAuthor.value, selectPages.value);
-    
+    confirmBtn.disabled = true; // Disable confirm button initially
+
     // clears container on each book that is added
     const books = document.querySelectorAll('.card');
     books.forEach(book => book.remove());
@@ -133,6 +146,8 @@ confirmBtn.addEventListener('click', (event) => {
         // checks if the button is currently toggled and applies class based on it
         if (book.read === 'read') {
             readBtn.classList.add('readBtnYes');
+            currentBtn.classList.remove('currentBtnYes')
+            card.classList.remove('currentYes');
         } else {
             readBtn.classList.add('readBtnNo');
         }
