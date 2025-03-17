@@ -50,7 +50,7 @@ newBtn.addEventListener('click', (event) => {
 confirmBtn.addEventListener('click', (event) => {
     event.preventDefault();
     addBookToLibrary(selectName.value, selectAuthor.value, selectPages.value);
-
+    
     // clears container on each book that is added
     const books = document.querySelectorAll('.card');
     books.forEach(book => book.remove());
@@ -179,6 +179,7 @@ confirmBtn.addEventListener('click', (event) => {
     
 });
 
+
 // Cancel button in adding the book modal
 cancelBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -191,3 +192,5 @@ function limitInputPages(input) {
         input.value = input.value.slice(0, 5); // Trim excess digits
     }
 }
+
+
