@@ -443,12 +443,6 @@ button.cancel:hover {
   background-color: #e53935; 
 }
 
-
-form {
-  
-  
-}
-
 @media (max-width: 768px) {
   * {
     margin: 0;
