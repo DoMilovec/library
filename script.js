@@ -59,12 +59,21 @@ confirmBtn.addEventListener('click', (event) => {
     for (let i=0 ; i<myLibrary.length ; i++){
         const book = myLibrary[i];
         const card =  document.createElement('div');
-        card.classList.add('card', 'currentNo');
-        if (myLibrary[i].read === 'read'){ // change read class on creation for css
+        card.classList.add('card');
+
+        if (book.read === 'read') {
             card.classList.add('read');
         } else {
             card.classList.add('unread');
         }
+        
+        if (book.current === 'currentYes') {
+            card.classList.add('currentYes');
+        } else {
+            card.classList.add('currentNo');
+        }
+
+
         container.appendChild(card);
         function updateCardText(card, book) {
             card.textContent = book.name 
@@ -92,6 +101,14 @@ confirmBtn.addEventListener('click', (event) => {
         currentBtn.textContent = '📖';
         currentBtn.classList.add('currentBtn');
         card.appendChild(currentBtn);
+
+        // checks if the button is currently toggled and applies class based on it
+        if (book.current === 'currentYes') {
+            currentBtn.classList.add('currentBtnYes');
+        } else {
+            currentBtn.classList.add('currentBtnNo');
+        }
+
         currentBtn.addEventListener('click', (event) => {  
             if (book.current === 'currentNo'){
                 card.classList.remove('currentNo');
@@ -112,6 +129,14 @@ confirmBtn.addEventListener('click', (event) => {
         readBtn.textContent = '✔️';
         readBtn.classList.add('readBtn');
         card.appendChild(readBtn);
+
+        // checks if the button is currently toggled and applies class based on it
+        if (book.read === 'read') {
+            readBtn.classList.add('readBtnYes');
+        } else {
+            readBtn.classList.add('readBtnNo');
+        }
+
         readBtn.addEventListener('click', (event) => {  
             if (book.read === 'unread'){
                 card.classList.remove('unread');
