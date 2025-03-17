@@ -126,6 +126,8 @@ confirmBtn.addEventListener('click', (event) => {
                 card.classList.add('currentYes');
                 currentBtn.classList.remove('currentBtnNo')
                 currentBtn.classList.add('currentBtnYes')
+                readBtn.classList.remove('readBtnYes')
+                card.classList.remove('read');
             } else if (book.current === 'currentYes'){
                 card.classList.remove('currentYes');
                 card.classList.add('currentNo');
