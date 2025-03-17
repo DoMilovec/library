@@ -101,9 +101,7 @@ confirmBtn.addEventListener('click', (event) => {
                 + ' pages';
         }
         
-        updateCardText(card, myLibrary[i]);
-        
-        window.addEventListener('resize', () => updateCardText(card, myLibrary[i]));        
+        updateCardText(card, myLibrary[i]);       
         
         // card.textContent = myLibrary[i].name + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].author + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + myLibrary[i].pages + ' pages';
         // saving the book ID in the loop
